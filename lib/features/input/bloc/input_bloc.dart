@@ -13,6 +13,8 @@ class InputBloc extends Bloc<InputEvent, List<Word>> {
   void _mapEventToState(InputEvent event, Emitter<List<Word>> emit) {
     if (event is InputWordAdded) {
       _wordService.addWord(event.word);
+      print(_wordService.words);
+      print(_wordService.hashCode);
 
       emit(_wordService.words);
     }
