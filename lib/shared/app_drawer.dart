@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:otp_flutter_test/features/word/view/pages/word_page.dart';
 import 'package:otp_flutter_test/features/score/view/pages/score_page.dart';
+import 'package:otp_flutter_test/features/word/view/pages/word_page.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
