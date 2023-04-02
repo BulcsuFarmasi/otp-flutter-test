@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otp_flutter_test/features/input/view/pages/input_page.dart';
+import 'package:otp_flutter_test/features/word/view/pages/word_page.dart';
 import 'package:otp_flutter_test/features/score/view/pages/score_page.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -18,9 +18,9 @@ class AppDrawer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ListTile(
-            title: const Text('Input'),
+            title: const Text('Word'),
             onTap: () {
-              _navigate(navigator, InputPage.routeName);
+              _navigate(navigator, WordPage.routeName);
             },
           ),
           ListTile(

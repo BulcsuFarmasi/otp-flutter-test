@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otp_flutter_test/features/input/view/pages/input_page.dart';
+import 'package:otp_flutter_test/features/word/view/pages/word_page.dart';
 import 'package:otp_flutter_test/features/score/view/pages/score_page.dart';
 
 class App extends StatelessWidget {
@@ -15,8 +15,8 @@ class App extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (_) => const InputPage(),
-        InputPage.routeName: (_) => const InputPage(),
+        '/': (_) => const WordPage(),
+        WordPage.routeName: (_) => const WordPage(),
         ScorePage.routeName: (_) => const ScorePage(),
       },
     );

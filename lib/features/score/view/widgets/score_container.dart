@@ -23,11 +23,14 @@ class _ScoreContainerState extends State<ScoreContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Score(),
-        WordList(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Column(
+        children: const [
+          Score(),
+          WordList(),
+        ],
+      ),
     );
   }
 }

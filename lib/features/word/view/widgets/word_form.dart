@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:otp_flutter_test/features/input/bloc/input_bloc.dart';
-import 'package:otp_flutter_test/features/input/bloc/input_event.dart';
+import 'package:otp_flutter_test/features/word/bloc/word_bloc.dart';
+import 'package:otp_flutter_test/features/word/bloc/word_event.dart';
 
 class WordForm extends StatefulWidget {
   const WordForm({super.key});
@@ -27,18 +27,33 @@ class _WordFormState extends State<WordForm> {
 
     _formKey.currentState!.save();
 
-    BlocProvider.of<InputBloc>(context, listen: false).add(InputWordAdded(_word!));
+    BlocProvider.of<WordBloc>(context, listen: false).add(WordAdded(_word!));
+
+    setState(() {
+      _word = '';
+    });
   }
 
   String? _validateWord(String? word) {
-    const String message = 'The input is not word';
+    String? message;
 
-    if (word == null) {
-      return message;
+    if (word == null || word.isEmpty) {
+      return 'Please provide a word';
     }
 
     final RegExp regExp = RegExp(r'^[a-zA-Z]+$');
-    return regExp.hasMatch(word) ? null : message;
+
+    if (!regExp.hasMatch(word)) {
+      message = 'The input is not word';
+    }
+
+    const String limitWord = 'pneumonoultramicroscopicsilicovolcanoconiosis';
+
+    if (word.length > limitWord.length) {
+      message = 'The word is too long';
+    }
+
+    return message;
   }
 
   @override

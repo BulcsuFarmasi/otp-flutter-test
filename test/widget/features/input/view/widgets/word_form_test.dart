@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:otp_flutter_test/features/input/view/widgets/word_form.dart';
+import 'package:otp_flutter_test/features/word/view/widgets/word_form.dart';
 
 void main() {
   group('WordForm', () {

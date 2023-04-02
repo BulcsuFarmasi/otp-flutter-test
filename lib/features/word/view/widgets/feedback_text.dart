@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:otp_flutter_test/features/input/bloc/input_bloc.dart';
+import 'package:otp_flutter_test/features/word/bloc/word_bloc.dart';
+import 'package:otp_flutter_test/features/word/bloc/word_event.dart';
 import 'package:otp_flutter_test/model/word.dart';
 
-class FeedbackText extends StatelessWidget {
+class FeedbackText extends StatefulWidget {
   const FeedbackText({super.key});
+
+  @override
+  State<FeedbackText> createState() => _FeedbackTextState();
+}
+
+class _FeedbackTextState extends State<FeedbackText> {
+  bool wordLoaded = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!wordLoaded) {
+      BlocProvider.of<WordBloc>(context).add(LoadWord());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     const TextStyle boldText = TextStyle(fontWeight: FontWeight.bold);
-    return BlocBuilder<InputBloc, List<Word>>(builder: (_, List<Word> words) {
+    return BlocBuilder<WordBloc, List<Word>>(builder: (_, List<Word> words) {
       return RichText(
         text: TextSpan(
           style: DefaultTextStyle.of(context).style,

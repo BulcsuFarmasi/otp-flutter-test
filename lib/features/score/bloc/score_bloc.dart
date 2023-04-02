@@ -11,13 +11,13 @@ class ScoreBloc extends Bloc<ScoreEvent, ScoreState> {
   final WordService _wordService;
 
   void _mapEventToState(ScoreEvent event, Emitter<ScoreState> emit) {
-    print('a');
     if (event is LoadScore) {
-      print('b');
-      print(_wordService.words);
-      print(_wordService.hashCode);
-      print(ScoreState(0, _wordService.words) == state);
-      emit(ScoreState(0, _wordService.words));
+      emit(
+        ScoreState(
+          _wordService.score,
+          _wordService.words,
+        ),
+      );
     }
   }
 }
