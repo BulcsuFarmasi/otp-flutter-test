@@ -5,5 +5,4 @@ class Word {
   bool highlighted;
 
   int get score => text.length;
-
 }
