@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:otp_flutter_test/features/word/bloc/word_bloc.dart';
 import 'package:otp_flutter_test/features/word/view/widgets/word_form.dart';
+import 'package:otp_flutter_test/model/word_service.dart';
 
 void main() {
   group('WordForm', () {
     Widget createWidgetUnderTest() {
-      return const MaterialApp(
+      return MaterialApp(
         home: Scaffold(
-          body: WordForm(),
+          body: BlocProvider(
+            create: (_) => WordBloc(WordService()),
+            child: const WordForm(),
+          ),
         ),
       );
     }
