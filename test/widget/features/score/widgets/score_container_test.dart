@@ -12,12 +12,13 @@ import 'package:otp_flutter_test/features/score/view/widgets/score_container.dar
 class MockScoreBloc extends MockBloc<ScoreEvent, ScoreState> implements ScoreBloc {}
 
 void main() {
-  group('ScoreContainer', skip: true, () {
+  group('ScoreContainer', () {
     late ScoreBloc scoreBloc;
 
     setUp(() {
       scoreBloc = MockScoreBloc();
       when(() => scoreBloc.add(const LoadScore())).thenReturn(null);
+      when(() => scoreBloc.state).thenReturn(ScoreState(0, []));
     });
 
     Widget createWidgetUnderTest() {
@@ -39,7 +40,7 @@ void main() {
           const LoadScore(),
         ),
       );
-    }, skip: true);
+    });
 
     testWidgets('should contain score', (WidgetTester widgetTester) async {
       await widgetTester.pumpWidget(createWidgetUnderTest());
@@ -47,7 +48,14 @@ void main() {
       final Finder score = find.byType(Score);
 
       expect(score, findsOneWidget);
+    });
 
+    testWidgets('should contain word list', (WidgetTester widgetTester) async {
+      await widgetTester.pumpWidget(createWidgetUnderTest());
+
+      final Finder score = find.byType(Score);
+
+      expect(score, findsOneWidget);
     });
   });
 }

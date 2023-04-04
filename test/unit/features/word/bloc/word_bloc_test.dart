@@ -12,7 +12,6 @@ void main() {
   group('WordBloc', () {
     late WordService wordService;
     late WordBloc wordBloc;
-    final List<Word> words = [Word('remote', true)];
     Word addedWord = Word('window', true);
 
     setUp(() {
@@ -27,7 +26,7 @@ void main() {
         when(() => wordService.words).thenReturn(
           [
             Word('remote', false),
-            Word('window', true),
+            addedWord,
           ],
         );
       },
@@ -35,7 +34,7 @@ void main() {
       expect: () => [
         [
           Word('remote', false),
-          Word('window', true),
+          addedWord,
         ],
       ],
     );

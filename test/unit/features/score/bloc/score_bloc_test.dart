@@ -23,24 +23,10 @@ void main() {
       when(() => wordService.score).thenReturn(score);
     });
 
-    // blocTest(
-    //   'should have initial values',
-    //   build: () => scoreBloc,
-    //   seed: () => ScoreState(
-    //     0,
-    //     [],
-    //   ),
-    //   expect: () => [
-    //     ScoreState(
-    //       0,
-    //       [],
-    //     ),
-    //   ],
-    // );
     blocTest(
       'should get values form service',
       build: () => scoreBloc,
-      act: (bloc) => bloc.add(LoadScore()),
+      act: (bloc) => bloc.add(const LoadScore()),
       expect: () => [
         ScoreState(score, words),
       ],

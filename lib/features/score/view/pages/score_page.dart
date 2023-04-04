@@ -21,7 +21,7 @@ class _ScorePageState extends State<ScorePage> {
     return Scaffold(
       appBar: AppBar(),
       drawer: const AppDrawer(),
-      body: BlocProvider(
+      body: BlocProvider<ScoreBloc>(
         create: (_) => ScoreBloc(GetIt.I.get<WordService>()),
         child: const ScoreContainer(),
       ),

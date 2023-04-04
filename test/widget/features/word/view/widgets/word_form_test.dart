@@ -51,7 +51,6 @@ void main() {
       testWidgets('should display provide a word error when an input is not given and a button is pressed',
           (WidgetTester widgetTester) async {
         await widgetTester.pumpWidget(createWidgetUnderTest());
-        final Finder input = find.byType(TextFormField);
         final Finder button = find.byType(ElevatedButton);
 
         await widgetTester.tap(button);
