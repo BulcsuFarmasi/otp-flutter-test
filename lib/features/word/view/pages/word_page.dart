@@ -10,14 +10,14 @@ import 'package:otp_flutter_test/shared/app_drawer.dart';
 class WordPage extends StatelessWidget {
   const WordPage({super.key});
 
-  static const routeName = '/input';
+  static const routeName = '/word';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
         drawer: const AppDrawer(),
-        body: BlocProvider(
+        body: BlocProvider<WordBloc>(
           create: (_) => WordBloc(GetIt.I<WordService>()),
           child: Column(
             children: const [

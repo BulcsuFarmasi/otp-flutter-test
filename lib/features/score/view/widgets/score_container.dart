@@ -18,7 +18,7 @@ class _ScoreContainerState extends State<ScoreContainer> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    BlocProvider.of<ScoreBloc>(context).add(LoadScore());
+    BlocProvider.of<ScoreBloc>(context).add(const LoadScore());
   }
 
   @override
@@ -28,7 +28,7 @@ class _ScoreContainerState extends State<ScoreContainer> {
       child: Column(
         children: const [
           Score(),
-          WordList(),
+          Expanded(child: WordList()),
         ],
       ),
     );

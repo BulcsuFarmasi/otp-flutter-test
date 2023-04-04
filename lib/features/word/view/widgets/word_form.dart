@@ -1,3 +1,4 @@
+import 'package:english_words/english_words.dart' as english_words;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:otp_flutter_test/features/word/bloc/word_bloc.dart';
@@ -28,10 +29,6 @@ class _WordFormState extends State<WordForm> {
     _formKey.currentState!.save();
 
     BlocProvider.of<WordBloc>(context, listen: false).add(WordAdded(_word!));
-
-    setState(() {
-      _word = '';
-    });
   }
 
   String? _validateWord(String? word) {
@@ -44,7 +41,11 @@ class _WordFormState extends State<WordForm> {
     final RegExp regExp = RegExp(r'^[a-zA-Z]+$');
 
     if (!regExp.hasMatch(word)) {
-      message = 'The input is not word';
+      message = 'Please only write letters';
+    }
+
+    if (!english_words.all.contains(word)) {
+      message = 'The word is not meaningful';
     }
 
     const String limitWord = 'pneumonoultramicroscopicsilicovolcanoconiosis';

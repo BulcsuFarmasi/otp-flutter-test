@@ -9,15 +9,17 @@ class WordList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: BlocBuilder<ScoreBloc, ScoreState>(builder: (_, ScoreState state) {
-      return ListView(
-        children: state.words
-            .map((Word word) => ListTile(
-                  title: Text(word.text),
-                  trailing: Text('${word.score}'),
-                ))
-            .toList(),
-      );
-    }));
+    return BlocBuilder<ScoreBloc, ScoreState>(
+      builder: (_, ScoreState state) {
+        return ListView(
+          children: state.words
+              .map((Word word) => ListTile(
+                    title: Text(word.text),
+                    trailing: Text('${word.score}'),
+                  ))
+              .toList(),
+        );
+      },
+    );
   }
 }
