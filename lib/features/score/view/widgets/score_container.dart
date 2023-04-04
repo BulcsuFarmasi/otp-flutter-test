@@ -28,7 +28,7 @@ class _ScoreContainerState extends State<ScoreContainer> {
       child: Column(
         children: const [
           Score(),
-          WordList(),
+          Expanded(child: WordList()),
         ],
       ),
     );

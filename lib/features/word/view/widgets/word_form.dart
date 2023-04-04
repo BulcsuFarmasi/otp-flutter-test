@@ -41,7 +41,7 @@ class _WordFormState extends State<WordForm> {
     final RegExp regExp = RegExp(r'^[a-zA-Z]+$');
 
     if (!regExp.hasMatch(word)) {
-      message = 'The input is not word';
+      message = 'Please only write letters';
     }
 
     if (!english_words.all.contains(word)) {

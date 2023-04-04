@@ -1,3 +1,7 @@
-abstract class ScoreEvent {}
+abstract class ScoreEvent {
+  const ScoreEvent();
+}
 
-class LoadScore extends ScoreEvent {}
+class LoadScore extends ScoreEvent {
+  const LoadScore() : super();
+}
