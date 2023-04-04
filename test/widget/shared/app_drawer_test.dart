@@ -8,7 +8,6 @@ import 'package:otp_flutter_test/shared/app_drawer.dart';
 
 void main() {
   group('AppDrawer', () {
-
     setUpAll(() {
       GetIt.I.registerSingleton(WordService());
     });
@@ -40,7 +39,7 @@ void main() {
       });
     });
 
-    group('navigate',  () {
+    group('navigate', () {
       testWidgets('should navigate to word page', (WidgetTester widgetTester) async {
         await widgetTester.pumpWidget(createWidgetUnderTest());
 

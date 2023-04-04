@@ -12,7 +12,7 @@ import 'package:otp_flutter_test/model/word.dart';
 class MockScoreBlock extends MockBloc<ScoreEvent, ScoreState> implements ScoreBloc {}
 
 void main() {
-  group('WordList',  () {
+  group('WordList', () {
     late ScoreState scoreState;
     late ScoreBloc scoreBloc;
 

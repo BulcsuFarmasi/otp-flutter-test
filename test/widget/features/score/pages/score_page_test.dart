@@ -9,13 +9,14 @@ import 'package:otp_flutter_test/model/word_service.dart';
 
 void main() {
   group('ScorePage', () {
-
     setUpAll(() {
       GetIt.I.registerSingleton(WordService());
     });
 
     Widget createWidgetUnderTest() {
-      return const MaterialApp(home: ScorePage(),);
+      return const MaterialApp(
+        home: ScorePage(),
+      );
     }
 
     testWidgets('should contain appDrawer', (WidgetTester widgetTester) async {
